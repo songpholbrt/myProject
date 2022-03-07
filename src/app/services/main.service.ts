@@ -14,6 +14,7 @@ export class MainService {
 
   constructor(
     @Inject('APIURL') private apiUrl: string,
+    @Inject('TOKENNAME') private tokenName: string,
     private router: Router,
     public http: HttpClient
   ) { }
@@ -37,7 +38,12 @@ export class MainService {
   }
 
   in_array(str: any, array: Array<any>): boolean {
-    return array.indexOf(str) == 0;
+    return array.indexOf(str) >= 0;
+  }
+
+  logout() {
+      localStorage.removeItem(this.tokenName);
+      this.router.navigate(['/login']);
   }
 
 

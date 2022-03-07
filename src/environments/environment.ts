@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  APIURL: 'http://localhost:4200'
+  APIURL: 'http://localhost:4200',
+  TOKENNAME: 'token-login'
 };
 
 /*
