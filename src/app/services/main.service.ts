@@ -1,5 +1,5 @@
 import { Injectable, Inject, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http'; //เพื่อ call หา backend
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -20,9 +20,9 @@ export class MainService {
   ) { }
 
   get(path: string) {
-    const url: string = `${this.apiUrl}/${path}`;
-    //const url: string = this.apiUrl;
-    return this.http.get(url).toPromise();
+    const url: string = `${this.apiUrl}/${path}`; // ใช้ได้เหมอืนกันกับบรรทัดล่าง ในแบ๊บติส (`) ${xxx} => คือตัวแปร
+    //const url: string = this.apiUrl+'/'+path;
+    return this.http.get(url);//.toPromise();
   }
 
   post(path: string, data: any) {
@@ -31,12 +31,12 @@ export class MainService {
     return this.http.post(url, data).toPromise();
   }
 
-  getUrl(url: string, data: any) {
-    return this.http.get(url).toPromise();
+  getUrl(url: string, data: any) { // ใส่ url http:// มาเลยเต็มๆ จากข้างนอก
+    return this.http.get(url);//.toPromise();
   }
 
   postUrl(url: string, data: any) {
-    return this.http.post(url, data).toPromise();
+    return this.http.post(url, data);//.toPromise();
   }
 
   in_array(str: any, array: Array<any>): boolean {

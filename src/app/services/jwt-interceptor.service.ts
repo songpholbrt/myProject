@@ -10,6 +10,7 @@ export class JwtInterceptorService implements HttpInterceptor{
   constructor(
     @Inject('TOKENNAME') private tokenName: string
   ) { }
+  
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem(this.tokenName);
     if (token) {

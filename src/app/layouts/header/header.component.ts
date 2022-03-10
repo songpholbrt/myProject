@@ -15,7 +15,11 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.decoded = this.main.decodeToken();
+    //this.decoded = this.main.decodeToken();
+    this.decoded = {
+      'pname':'Mr.','fname':'Songphol','lname':'Aiyarakom'
+    }
+    console.log(this.decoded);
   }
 
   logout() {

@@ -11,19 +11,20 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
+  public jwtHelper = new JwtHelperService(); // มานิว คลาสใหม่
   public login = new Login();
-  jwtHelper = new JwtHelperService();
 
-  constructor(
-    @Inject('TOKENNAME') private tokenName: string,
-    private main: MainService,
-    private router: Router
-  ) { }
+  constructor( // ตัวแปรทำงาน โหลดเข้ามาแค่ครั้งแรก ครั้งเดียว // ตัวแปรเก็บในวงเล็บ
+    @Inject('TOKENNAME') private tokenName: string, // ตัวแปรของ Environment
+    private main: MainService, // คลาสจากข้างนอก
+    private router: Router // คลาสจากข้างนอก
+  ) { } // ฟังชั่นอยู่ในก้ามปู
 
-  ngOnInit(): void {
+  ngOnInit(): void { // ตัวแปรทำงาน โหลดเข้ามา และเปลี่ยนได้ตาม event
     document.body.className = 'hold-transition login-page';
     //const token = localStorage.getItem(this.tokenName);
     const token = JSON.parse(localStorage.getItem(this.tokenName)!);
+
     try {
       if (!this.jwtHelper.isTokenExpired(token)) {
         this.router.navigate(['/index']);
@@ -35,12 +36,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     //alert("deww");
-    this.main.post('login', this.login).then((res: any) => {
+    this.main.post('login', this.login).then((res: any) => { // ได้ callback มาใส่ในตัวแปร res
       //console.log(res);
-      alert("deww");
-      if (res.ok) {
+      //alert("deww");
+
+      if (res.ok) { // ok คือ ค่าจาก object เป็น boonlean
         console.log(res);
-        localStorage.setItem(this.tokenName, res.token);
+        localStorage.setItem(this.tokenName, res.token); // เอา token เก็บลง localstorage
         this.router.navigate(['/']);
 
       } else {
@@ -50,13 +52,14 @@ export class LoginComponent implements OnInit {
           text: res.err
         });
       }
+
     })
   }
 
 }
 
-export class Login{
-  username: string = '';
-  password: string = '';
+export class Login{ // เพื่อแค่เก็บค่าตัวแปร
+  username: string = 'dew';
+  password: string = 'dew';
 
 }

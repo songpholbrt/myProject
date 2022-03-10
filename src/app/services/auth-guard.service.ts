@@ -24,7 +24,7 @@ export class AuthGuardService {
         this.main.logout();
         return false;
       } else {
-        return true;
+        return true; // token ยังไม่หมดอายุ
       }
     } catch (err) {
       this.main.logout();

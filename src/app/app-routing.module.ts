@@ -7,16 +7,16 @@ import { AuthGuardService } from './services/auth-guard.service';
 const routes: Routes = [
   { path: '', component: MainComponent }, // พาเข้าหน้า main ทั้วหมด
 
-  // { path: '', redirectTo: 'login', pathMatch: 'full' }, พาเข้าหน้า login ทั้วหมด
-  { path: 'login', component: LoginComponent },
-  {
-    path: 'index', component: MainComponent,
-    canActivate: [AuthGuardService],
-    children: [
-      { path: '', component: MainComponent}
-    ]
-  },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' }
+  // { path: '', redirectTo: 'login', pathMatch: 'full' }, //พาเข้าหน้า login ทั้วหมด
+  // { path: 'login', component: LoginComponent },
+  // {
+  //   path: 'index', component: MainComponent,
+  //   canActivate: [AuthGuardService], // ต้องผ่านจุดนี้ด้วยเสมอ
+  //   children: [
+  //     { path: '', component: MainComponent}
+  //   ]
+  // },
+  // { path: '**', redirectTo: 'login', pathMatch: 'full' } // หรือ ไปทำ component page not found
 ];
 
 @NgModule({
