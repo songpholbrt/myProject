@@ -48,5 +48,21 @@ export class MainService {
       this.router.navigate(['/login']);
   }
 
+  decodeToken() {
+    const token = JSON.parse(localStorage.getItem(this.tokenName)!);
+    try {
+      if (!this.jwtHelper.isTokenExpired(token)) {
+        const decode = JSON.parse(this.jwtHelper.decodeToken(token));
+        return decode;
+      } else {
+        this.logout();
+        return false;
+      }
+    } catch (err) {
+      this.logout();
+      return false;
+    }
+  }
+
 
 }
