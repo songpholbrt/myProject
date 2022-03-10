@@ -9,7 +9,7 @@ import { MainService } from './main.service';
 })
 export class AuthGuardService {
 
-  public jwtHelper = new JwtHelperService();
+  public jwtHelper = new JwtHelperService()
 
   constructor(
     @Inject('TOKENNAME') private tokenName: string,
@@ -17,7 +17,8 @@ export class AuthGuardService {
   ) { }
 
   canActivate(router: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const token = localStorage.getItem(this.tokenName);
+    //const token = localStorage.getItem(this.tokenName);
+    const token = JSON.parse(localStorage.getItem(this.tokenName)!);
     try {
       if (this.jwtHelper.isTokenExpired(token)) {
         this.main.logout();

@@ -20,12 +20,14 @@ export class MainService {
   ) { }
 
   get(path: string) {
-    const url: string = '${this.apiUrl}/${path}';
+    const url: string = `${this.apiUrl}/${path}`;
+    //const url: string = this.apiUrl;
     return this.http.get(url).toPromise();
   }
 
   post(path: string, data: any) {
-    const url: string = '${this.apiUrl}/${path}';
+    const url: string = `${this.apiUrl}/${path}`;
+    //const url: string = this.apiUrl+'/'+path;
     return this.http.post(url, data).toPromise();
   }
 
