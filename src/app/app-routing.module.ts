@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: MainComponent }, // พาเข้าหน้า main ทั้วหมด
 
   // { path: '', redirectTo: 'login', pathMatch: 'full' }, //พาเข้าหน้า login ทั้วหมด
-  // { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   // {
   //   path: 'index', component: MainComponent,
   //   canActivate: [AuthGuardService], // ต้องผ่านจุดนี้ด้วยเสมอ

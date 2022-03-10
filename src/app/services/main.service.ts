@@ -44,8 +44,9 @@ export class MainService {
   }
 
   logout() {
-      localStorage.removeItem(this.tokenName);
-      this.router.navigate(['/login']);
+    //alert('logout');
+    //localStorage.removeItem(this.tokenName);
+    this.router.navigate(['/login']);
   }
 
   decodeToken() {
