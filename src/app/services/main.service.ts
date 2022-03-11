@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,8 @@ export class MainService {
   get(path: string) {
     const url: string = `${this.apiUrl}/${path}`; // ใช้ได้เหมอืนกันกับบรรทัดล่าง ในแบ๊บติส (`) ${xxx} => คือตัวแปร
     //const url: string = this.apiUrl+'/'+path;
-    return this.http.get(url);//.toPromise();
+    //return this.http.get(url).toPromise();
+    return this.http.get<any>(url).subscribe();
   }
 
   post(path: string, data: any) {
@@ -32,7 +34,13 @@ export class MainService {
   }
 
   getUrl(url: string, data: any) { // ใส่ url http:// มาเลยเต็มๆ จากข้างนอก
+    //return this.http.get(url);//.toPromise();
     return this.http.get(url);//.toPromise();
+    //return this.http.get(url).Observable.of();
+  }
+
+  getData(url: string) {
+    return this.http.get(url, { responseType: 'text' });
   }
 
   postUrl(url: string, data: any) {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  public decoded: any;
+
+  constructor( 
+    private main: MainService
+   ) { }
 
   ngOnInit(): void {
+
+    this.decoded = {
+      'pname':'Mr.','fname':'Songphol','lname':'Aiyarakom'
+    }
   }
 
 }

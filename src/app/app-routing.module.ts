@@ -9,6 +9,7 @@ const routes: Routes = [
 
   // { path: '', redirectTo: 'login', pathMatch: 'full' }, //พาเข้าหน้า login ทั้วหมด
   { path: 'login', component: LoginComponent },
+      { path: 'index', component: MainComponent }, // link test
   // {
   //   path: 'index', component: MainComponent,
   //   canActivate: [AuthGuardService], // ต้องผ่านจุดนี้ด้วยเสมอ

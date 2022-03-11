@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 }
 
 export class Login{ // เพื่อแค่เก็บค่าตัวแปร
-  username: string = 'dew';
-  password: string = 'dew';
+  username: string = 'admin';
+  password: string = 'admin';
 
 }
