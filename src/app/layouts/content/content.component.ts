@@ -27,8 +27,9 @@ export class ContentComponent implements OnInit {
   public equ = new Equipment();
   public equipments: any;
   public equName = [
-    'Computer' , 'Printer', 'Scanner'
+    'Computer' , 'Printer', 'Scanner','Laptop','Monitor'
   ];
+  public edit: boolean = false;
 
   errCode: boolean = false;
   errDateAdd: boolean = false;
@@ -64,8 +65,11 @@ export class ContentComponent implements OnInit {
     //alert("add");
   }
 
-  editEqipment() {
-    alert("edit");
+  editEqipment(equipm: any) {
+    //alert("edit");
+    this.edit = true;
+    this.equ = equipm;
+    $('#modal-add-equipment').modal({ backdrop: 'static', keyboard: false });
   }
 
   deleteEqipment() {
@@ -92,11 +96,11 @@ export class ContentComponent implements OnInit {
   }
 
   onCancel() {
+    this.edit = false;
     $('#modal-add-equipment').modal('hide');
     this.equ = new Equipment();
     this.errCode = false;
     this.errDateAdd = false;
-    //alert("cancel");
   }
 
   onSubmit() {
