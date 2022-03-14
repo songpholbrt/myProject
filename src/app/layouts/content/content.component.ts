@@ -117,7 +117,7 @@ export class ContentComponent implements OnInit {
           allowOutsideClick: false
         }).then(() => {
           this.getEquipment();
-          this.onCancel();
+          this.onCancel(); // เพื่อเคลียร์ค่าทั้งหมด
         });
 
       })
@@ -135,8 +135,8 @@ export class ContentComponent implements OnInit {
 }
 
 export class Equipment{
-  code: string = '0005';
+  code: string = '';
   name: string = 'Computer';
-  date_add: any = '2022-03-14';
-  username: string = '5';
+  date_add: any = '';
+  username: string = '';
 }

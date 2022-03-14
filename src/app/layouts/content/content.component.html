@@ -25,7 +25,7 @@
                         <div class="box-body no-padding">
 
                         <div class="pull-right" style="margin-right: 15px;">
-                            <button (click)="addEqipment()" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal" >
+                            <button (click)="addEqipment()" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-add-equipment" >
                                 <i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล
                             </button>
                         </div>
@@ -92,21 +92,23 @@
     data-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="modal-add-equipment" tabindex="-1" role="dialog" aria-labelledby="modal-add-equipment">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-green">
-                <button (click)="onCancel()" type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button (click)="onCancel()" type="button" class="close" data-dismiss="modal"  aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="exampleModalLabel"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มข้อมูล</h4>
             </div>
             <form enctype="multipart/form-data" (ngSubmit)="onSubmit()">
-                <div class="modal-body">
-                    
+                <div class="modal-body box">
+                    <!-- <div class="overlay"> ---- loading
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div> -->
                         <div class="form-group" [class.has-error]="errCode">
                             <label for="equ_code" class="control-label">รหัสพัสดุ :</label>
-                            <input [(ngModel)]="equ.code" type="text" class="form-control" id="equ_code" placeholder="รหัสพัสดุ" (blur)="onCode(equ.code)" (keyup)="onCode(equ.code)" >
-                            <span class="help-block col-xs-12 col-sm-reset inline" style="font-size: 12px;" *ngIf="errCode" >* จำเป็นต้องมีข้อมูล !</span>{{equ.code}}
+                            <input [(ngModel)]="equ.code" type="text" class="form-control" id="code" name="code" placeholder="รหัสพัสดุ" (blur)="onCode(equ.code)" (keyup)="onCode(equ.code)" >
+                            <span class="help-block col-xs-12 col-sm-reset inline" style="font-size: 12px;" *ngIf="errCode" >* จำเป็นต้องมีข้อมูล !</span>
                         </div>
                         <div class="form-group">
                             <label for="equ_name" class="control-label">พัสดุ :</label>
@@ -118,12 +120,12 @@
                         </div>
                         <div class="form-group" [class.has-error]="errDateAdd">
                             <label for="equ_date_add" class="control-label">วันที่ซื้อ :</label>
-                            <input [(ngModel)]="equ.date_add" type="text" class="form-control" id="equ_date_add" placeholder="YYYY-MM-DD" (blur)="onDateAdd(equ.date_add)" (keyup)="onDateAdd(equ.date_add)" >
+                            <input [(ngModel)]="equ.date_add" type="date" class="form-control" id="date_add" name="date_add" placeholder="YYYY-MM-DD" (blur)="onDateAdd(equ.date_add)" (keyup)="onDateAdd(equ.date_add)" >
                             <span class="help-block col-xs-12 col-sm-reset inline" style="font-size: 12px;" *ngIf="errDateAdd">* จำเป็นต้องมีข้อมูล !</span>
                         </div>
                         <div class="form-group">
                             <label for="equ_username" class="control-label">ผู้รับผิดชอบ :</label>
-                            <input [(ngModel)]="equ.username" type="text" class="form-control" id="equ_username" placeholder="ผู้รับผิดชอบ" >
+                            <input [(ngModel)]="equ.username" type="text" class="form-control" id="username" name="username" placeholder="ผู้รับผิดชอบ" >
                         </div>
                     
                 </div>
