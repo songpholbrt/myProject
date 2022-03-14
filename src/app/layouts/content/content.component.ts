@@ -115,6 +115,9 @@ export class ContentComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500,
           allowOutsideClick: false
+        }).then(() => {
+          this.getEquipment();
+          this.onCancel();
         });
 
       })
