@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import Swal from 'sweetalert2';
+//import {IMyDpOptions} from 'mydatepicker';
 declare const $: any;
 
 /*export class Equipment{
@@ -63,6 +64,11 @@ export class ContentComponent implements OnInit {
 
   addEqipment() {
     //alert("add");
+    this.edit = false;
+    $('#modal-add-equipment').modal('hide');
+    this.equ = new Equipment();
+    this.errCode = false;
+    this.errDateAdd = false;
   }
 
   editEqipment(equipm: any) {
@@ -72,8 +78,25 @@ export class ContentComponent implements OnInit {
     $('#modal-add-equipment').modal({ backdrop: 'static', keyboard: false });
   }
 
-  deleteEqipment() {
-    alert("delete");
+  deleteEqipment(equipm: any) {
+    //alert("delete"+equipm.id);
+    Swal.fire({
+      text: 'คุณต้องการที่จะลบ ' + equipm.code + ' หรือไม่',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'ใช่',
+      cancelButtonText: 'ไม่ใช่',
+      reverseButtons: true,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.value) {
+        /*this.main.get('equipment/' + equipm.id).then((res: any) => {
+          this.getEquipment();
+          this.onCancel();
+        });*/
+        alert('delete '+equipm.code);
+      }
+    });
   }
 
   onCode(str:string) {
