@@ -16,6 +16,9 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { JwtInterceptorService } from './services/jwt-interceptor.service';
+import { ContentoneComponent } from './pages/contentone/contentone.component';
+import { MaxMinMeterComponent } from './pages/max-min-meter/max-min-meter.component';
+import { SquareFlexComponent } from './pages/square-flex/square-flex.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { JwtInterceptorService } from './services/jwt-interceptor.service';
     ContentComponent,
     FooterComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    ContentoneComponent,
+    MaxMinMeterComponent,
+    SquareFlexComponent
   ],
   imports: [
     BrowserModule,

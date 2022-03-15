@@ -73,6 +73,36 @@
                     </div>
                     <!-- End Box -->
 
+                    <app-contentone (numberChange)="testNumberChange($event)" [step]="5"></app-contentone>
+                    <app-contentone (numberChange)="testNumberChange($event)" [step]="10"></app-contentone>
+                    <button type="button" (click)="testClick()" >Test Event Binding</button>
+
+                    <hr />
+                    <!-- Property Binding -->
+                    <app-max-min-meter minLabel="minLabel" maxLabel="maxLabel"></app-max-min-meter><hr/>
+                    <!-- //กำหนดค่า string ตายตัว string ให้ minLabel มีค่า minLabel -->
+
+                    <app-max-min-meter [minLabel]="'minLabelx'" [maxLabel]="'maxLabely'"></app-max-min-meter><hr />
+                    <!-- กำหนด string minLabelx ให้ property minLabel -->
+
+                    <app-max-min-meter [minLabel]="appMinLabel" [maxLabel]="appMaxLabel" (minChange)="doAppMinChange($event)"  (maxChange)="doAppMaxChange($event)"  ></app-max-min-meter><hr />
+                    <!-- นำค่าจากตัวแปร appMinLabel มาแสดงใน property minLabel -->
+
+                    <app-square-flex [divHeight]="squareHeight" [divWidth]="squareWidth" ></app-square-flex>
+                    <div>
+                        width :
+                        <button type="button" (click)="squareWidth=50">50px</button>
+                        <button type="button" (click)="squareWidth=100">100px</button>
+                        <button type="button" (click)="squareWidth=200">200px</button>
+                    </div>
+                    <div>
+                        Height :
+                        <button type="button" (click)="squareHeight=50">50px</button>
+                        <button type="button" (click)="squareHeight=100">100px</button>
+                        <button type="button" (click)="squareHeight=200">200px</button>
+                    </div>
+
+
                 </div>
 
             </div>
@@ -137,3 +167,4 @@
         </div>
     </div>
 </div>
+

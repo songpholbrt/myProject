@@ -42,6 +42,12 @@ export class ContentComponent implements OnInit {
   //public result: any;
   private urlEquip: string = 'http://localhost/mysql2json/equipment.php';
 
+  appMinLabel = 'myAppMinLabel';
+  appMaxLabel = 'myAppMaxlabel';
+
+  squareHeight = 100;
+  squareWidth = 250;
+
   constructor(
     private main: MainService,
     private httpClinet: HttpClient
@@ -157,6 +163,24 @@ export class ContentComponent implements OnInit {
         allowOutsideClick: false
       });
     }
+  }
+
+  testClick() {
+    //alert("deww");
+    console.log('test event binding');
+    
+  }
+
+  testNumberChange(value: number) {
+    console.log('test number change from contectone : ', value);
+  }
+
+  doAppMinChange(value: number) {
+    console.log('test minChange event : ', value);
+  }
+
+  doAppMaxChange(value: number) {
+    console.log('test maxChange event : ', value);
   }
 
 }
